@@ -3,8 +3,7 @@ from datetime import timedelta
 import os
 import re
 
-# You need to set up a Google Cloud project and enable the YouTube Data API
-# Then, create an API key and set it as an environment variable
+# TO-DO: check how to make it deployable, with environment variables
 API_KEY = os.environ.get('YOUTUBE_API_KEY')
 
 youtube = build('youtube', 'v3', developerKey=API_KEY)
