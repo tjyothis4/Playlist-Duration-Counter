@@ -3,7 +3,8 @@ from datetime import timedelta
 import os
 import re
 
-
+# You need to set up a Google Cloud project and enable the YouTube Data API
+# Then, create an API key and set it as an environment variable
 API_KEY = os.environ.get('YOUTUBE_API_KEY')
 
 youtube = build('youtube', 'v3', developerKey=API_KEY)
@@ -45,7 +46,6 @@ def parse_duration(duration):
         return timedelta()
     parts = {k: int(v) if v else 0 for k, v in match.groupdict().items()}
     return timedelta(**parts)
-
 
 playlist_id = input('Enter your playlist id ')
 total_duration = get_playlist_duration(playlist_id)
